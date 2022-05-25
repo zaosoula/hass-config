@@ -1,9 +1,9 @@
 input_boolean:
   laundry_display:
 
-  computer_lock:
-    name: Avstängningslås
-    icon: custom:lock
+  # computer_lock:
+  #   name: Avstängningslås
+  #   icon: custom:lock
 
 input_number:
   monitors_volume:
