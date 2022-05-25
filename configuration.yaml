@@ -50,14 +50,14 @@ recorder:
       - sensor.browser_*
 
 person:
-  - name: Matte
-    id: matte
+  - name: Zao
+    id: zao
     device_trackers:
       - device_tracker.mattias_iphone_unifi
       - device_tracker.mattias_iphone_ios
 
-  - name: Sanja
-    id: sanja
+  - name: Pierre
+    id: pierre
     device_trackers:
       - device_tracker.sanjas_iphone_unifi
       - device_tracker.sanjas_iphone_ios
@@ -65,24 +65,24 @@ person:
 smartir:
   check_updates: false
 
-climate:
-  - platform: smartir
-    name: AC
-    unique_id: EXP26U758CW
-    device_code: 1703
-    controller_data: remote.broadlink_remote
-    temperature_sensor: sensor.broadlink_rm4_pro_temperature
-    humidity_sensor: sensor.broadlink_rm4_pro_humidity
-    power_sensor: binary_sensor.gosund_ac_power_state
-    power_sensor_restore_state: true
+# climate:
+#   - platform: smartir
+#     name: AC
+#     unique_id: EXP26U758CW
+#     device_code: 1703
+#     controller_data: remote.broadlink_remote
+#     temperature_sensor: sensor.broadlink_rm4_pro_temperature
+#     humidity_sensor: sensor.broadlink_rm4_pro_humidity
+#     power_sensor: binary_sensor.gosund_ac_power_state
+#     power_sensor_restore_state: true
 
-influxdb:
-  host: !secret influxdb_host
-  precision: s
-  include:
-    entities:
-      - sensor.mattias_weight
-      - sensor.sanja_weight
+# influxdb:
+#   host: !secret influxdb_host
+#   precision: s
+#   include:
+#     entities:
+#       - sensor.mattias_weight
+#       - sensor.sanja_weight
 
 waste_collection_schedule:
   sources:
@@ -90,9 +90,9 @@ waste_collection_schedule:
       args:
         url: !secret waste_collection_schedule_url
 
-wemo:
-  discovery: false
-  static: !secret wemo_static
+# wemo:
+#   discovery: false
+#   static: !secret wemo_static
 
 spotify:
   client_id: !secret spotify_client_id
@@ -121,19 +121,19 @@ notify:
   - name: ALL_DEVICES
     platform: group
     services:
-      - service: mobile_app_mattias_iphone_ios
-      - service: mobile_app_mattias_imac
-      - service: mobile_app_sanja_iphone
+      # - service: mobile_app_mattias_iphone_ios
+      # - service: mobile_app_mattias_imac
+      # - service: mobile_app_sanja_iphone
 
-monitor_docker:
-  - name: Docker
-    monitored_conditions: [allinone]
-    scan_interval: 120
+# monitor_docker:
+#   - name: Docker
+#     monitored_conditions: [allinone]
+#     scan_interval: 120
 
-  - name: RPi Docker
-    url: !secret monitor_docker_rpi_url
-    monitored_conditions: [allinone]
-    scan_interval: 120
+#   - name: RPi Docker
+#     url: !secret monitor_docker_rpi_url
+#     monitored_conditions: [allinone]
+#     scan_interval: 120
 
 lock:
   - platform: template

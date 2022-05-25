@@ -267,8 +267,8 @@ template:
             {% else %}
               Kan inte läsa in väderinformation...
             {% endif %}
-          transport: >
-            {{ states('sensor.skanetrafiken') }}
+          # transport: >
+          #   {{ states('sensor.skanetrafiken') }}
           laundry: >
             {% set start_time = state_attr('calendar.tvatta', 'start_time') %}
             {% if start_time != None %}
